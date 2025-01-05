@@ -1,6 +1,6 @@
 ---
 - name: Check if rsyslog service exists
-  hosts: all
+  hosts: gcp_nonprod_linux
   gather_facts: true
   tasks:
 
