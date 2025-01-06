@@ -11,12 +11,12 @@
 
     - name: Print result for hosts with rsyslog
       debug:
-        msg: "{{ ansible_facts['hostname'] }} {{ ansible_facts['distribution'] }}:{{ ansible_facts['distribution_major_version']}} {{ rsyslog_status['stdout'] }}"
+        msg: "{{ inventory_hostname }}   {{ ansible_facts['hostname'] }} {{ ansible_facts['distribution'] }}:{{ ansible_facts['distribution_major_version']}} {{ rsyslog_status['stdout'] }}"
       when: rsyslog_status.rc == 0
 
     - name: Print result for hosts without rsyslog
       debug:
-        msg: "{{ ansible_facts['hostname'] }}:{{ ansible_facts['distribution'] }}:{{ ansible_facts['distribution_major_version']}}"
+        msg: "{{ inventory_hostname }}   {{ ansible_facts['hostname'] }}:{{ ansible_facts['distribution'] }}:{{ ansible_facts['distribution_major_version']}}"
       when: rsyslog_status.rc != 0
 
     - name: Print random to test
