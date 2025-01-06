@@ -16,7 +16,7 @@
 
     - name: Print result for hosts without rsyslog
       debug:
-        msg: "{{ inventory_hostname }}: rsyslog service does not exist"
+        msg: "{{ ansible_facts['hostname'] }}:{{ ansible_facts['distribution'] }}:{{ ansible_facts['distribution_major_version']}}"
       when: rsyslog_status.rc != 0
 
     - name: Print random to test
