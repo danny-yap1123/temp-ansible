@@ -1,6 +1,6 @@
 ---
 - name: Check if rsyslog service exists
-  hosts: all
+  hosts: "{{ selected_groups }}"
   gather_facts: true
   tasks:
 
